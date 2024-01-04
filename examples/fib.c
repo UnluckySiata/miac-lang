@@ -9,4 +9,5 @@ int main() {
 const int x = 5;
 int a = fib(x);
 const int q = printf("fib %d: %d\n", x, a);
+return 0;
 }
