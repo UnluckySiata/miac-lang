@@ -1,0 +1,23 @@
+fn f(a: i32, b: i32) -> i32 {
+    return a + b;
+}
+
+fn main() -> i32 {
+    var a: string = "aaaaaa";
+    var x: f32 = 3.1 / 2.0 * 1.0;
+    const b: i32 = 1;
+
+    x = f(1, 2);
+
+    if x > 2 {
+        x = 0;
+    }
+
+    while !x {
+        x = x + 1;
+    }
+
+    var q: i32 = printf("%f\n", x);
+
+    return x <= 1 * 0;
+}
