@@ -36,9 +36,7 @@ fn translate_to_c(src: &str, tree: &Tree) -> String {
                 let translated_variable = translate_variable_declaration(src, &child);
                 c_code.push_str(&translated_variable);
             }
-            x => {
-                println!("{x}");
-            }
+            _ => {}
         }
     }
 
@@ -100,7 +98,6 @@ fn translate_block(src: &str, node: &tree_sitter::Node) -> String {
     let mut cursor = node.walk();
 
     for statement in node.children(&mut cursor) {
-        println!("{a}", a = statement.kind());
         let statement_code = match statement.kind() {
             "return_statement" => translate_return_statement(src, &statement),
             "variable_declaration" => translate_variable_declaration(src, &statement),
@@ -150,7 +147,6 @@ fn main() -> std::io::Result<()> {
         .expect("Error loading Miac grammar");
 
     let src = std::fs::read_to_string(in_file).expect("Failed to open input file");
-    // let src = "fn main(a: i32) -> i32 { let x: i32 = 3; return x; }".to_owned();
 
     let tree = parser.parse(src.clone(), None).unwrap();
 
