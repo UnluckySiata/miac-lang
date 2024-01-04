@@ -23,7 +23,7 @@ fn get_field(src: &str, node: &Node, name: &str) -> String {
 fn translate_to_c(src: &str, tree: &Tree) -> String {
     let root = tree.root_node();
     let mut cursor = root.walk();
-    let mut c_code = String::new();
+    let mut c_code = String::from("#include <stdio>\n");
 
     for child in root.children(&mut cursor) {
         match child.kind() {
